@@ -3,84 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Time Machine">
+    <meta property="og:description" content="Enter your destination year to travel through time!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600">
+    <meta property="og:type" content="website">
+
     <title>Time Machine</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1920') no-repeat center center fixed;
+            font-family: 'Courier New', Courier, monospace;
+            background: #0d0d0d url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200') no-repeat center center fixed;
             background-size: cover;
             color: #00ffcc;
-            font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            overflow: hidden;
+        }
+        /* Background Overlay for better readability */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1;
         }
         .container {
-            text-align: center;
-            background: rgba(10, 10, 10, 0.85);
-            padding: 40px;
-            border-radius: 15px;
+            position: relative;
+            z-index: 2;
+            background: rgba(10, 25, 20, 0.85);
             border: 2px solid #00ffcc;
             box-shadow: 0 0 20px #00ffcc;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
         }
         h1 {
             font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        p {
+            font-size: 1.1rem;
             margin-bottom: 20px;
+            color: #88ffcc;
         }
         input[type="number"] {
-            background: #222;
+            background: #000;
             border: 1px solid #00ffcc;
-            color: #fff;
+            color: #00ffcc;
             padding: 12px;
-            font-size: 1.2rem;
-            border-radius: 5px;
+            font-size: 1.5rem;
             text-align: center;
             width: 150px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: inset 0 0 5px #00ffcc;
+        }
+        /* Removing arrows from number input */
+        input[::-webkit-outer-spin-button],
+        input[::-webkit-inner-spin-button] {
+            -webkit-appearance: none;
+            margin: 0;
         }
         button {
             background: #00ffcc;
             color: #000;
             border: none;
-            padding: 12px 30px;
+            padding: 15px 35px;
             font-size: 1.2rem;
             font-weight: bold;
-            border-radius: 5px;
             cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #00ffcc;
         }
         button:hover {
-            background: #fff;
-            box-shadow: 0 0 15px #fff;
+            background: #000;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            box-shadow: 0 0 20px #00ffcc;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Time Machine</h1>
-    <p>Enter the destination year to temporal travel:</p>
-    
-    <input type="number" id="targetYear" placeholder="e.g. 2050" required><br>
-    <button onclick="startTimeTravel()">Travel</button>
-</div>
+    <div class="overlay"></div>
 
-<script>
-    function startTimeTravel() {
-        const year = document.getElementById('targetYear').value;
-        if(year) {
+    <div class="container">
+        <h1>TIME MACHINE</h1>
+        <p>Enter the destination year to temporal travel:</p>
+        <input type="number" id="yearInput" placeholder="00">
+        <br>
+        <button onclick="startTravel()">TRAVEL</button>
+    </div>
+
+    <script>
+        function startTravel() {
+            var year = document.getElementById("yearInput").value;
+            if(year === "") {
+                // Agar year khali ho to notification box na aaye, bas placeholder blink kare ya focus ho jaye
+                document.getElementById("yearInput").focus();
+                return;
+            }
             
-            // Aap ki batayi hui nayi instagram reel ka link yahan set hai
-            window.location.href = "https://www.instagram.com/reel/DYUL8ByyC2f/";
-        } else {
-         
+            // Alert popup completely deleted. Direct redirection to target link:
+            window.location.href = "https://www.instagram.com/reels/"; 
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
