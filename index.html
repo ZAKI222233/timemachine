@@ -27,7 +27,6 @@
             height: 100vh;
             overflow: hidden;
         }
-        /* Background Overlay for better readability */
         .overlay {
             position: absolute;
             top: 0;
@@ -73,7 +72,6 @@
             outline: none;
             box-shadow: inset 0 0 5px #00ffcc;
         }
-        /* Removing arrows from number input */
         input[::-webkit-outer-spin-button],
         input[::-webkit-inner-spin-button] {
             -webkit-appearance: none;
@@ -116,13 +114,12 @@
         function startTravel() {
             var year = document.getElementById("yearInput").value;
             if(year === "") {
-                // Agar year khali ho to notification box na aaye, bas placeholder blink kare ya focus ho jaye
                 document.getElementById("yearInput").focus();
                 return;
             }
             
-            // Alert popup completely deleted. Direct redirection to target link:
-            window.location.href = "https://www.instagram.com/reels/"; 
+            // Redirecting directly to your exact Instagram Reel (Alert is completely removed)
+            window.location.href = "https://www.instagram.com/reel/C7X3oN6I_b_/?igsh=MXVubXlsM3EwbG5wMQ=="; 
         }
     </script>
 </body>
